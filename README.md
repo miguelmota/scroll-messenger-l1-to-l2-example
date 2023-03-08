@@ -53,7 +53,7 @@ npx hardhat run --network goerli scripts/deployL1.js
 Output
 
 ```sh
-L1Contract deployed to: 0x1196761D8BC73b1d79b8f89c706E8d81D6727ADF
+L1Contract deployed to: 0x41Ed7bd26747d2BE681795443C9e76c7fa3f9880
 ```
 
 ### Deploy L2 Contract
@@ -61,14 +61,14 @@ L1Contract deployed to: 0x1196761D8BC73b1d79b8f89c706E8d81D6727ADF
 Command
 
 ```sh
-L1_CONTRACT=0x1196761D8BC73b1d79b8f89c706E8d81D6727ADF \
+L1_CONTRACT=0x41Ed7bd26747d2BE681795443C9e76c7fa3f9880 \
 npx hardhat run --network scroll scripts/deployL2.js
 ```
 
 Output
 
 ```sh
-L2Contract deployed to: 0xe9ab9BdC838BA06C7eFdc83ce79494F012A65C65
+L2Contract deployed to: 0x6310B81901A64DDF04Ca83fc9904Df9833721d4F
 ```
 
 ### Send L1->L2 Message
@@ -77,16 +77,16 @@ Command (replace env vars with your values)
 
 ```sh
 GREETING="hello world" \
-L1_CONTRACT=0x1196761D8BC73b1d79b8f89c706E8d81D6727ADF \
-L2_CONTRACT=0xe9ab9BdC838BA06C7eFdc83ce79494F012A65C65 \
+L1_CONTRACT=0x41Ed7bd26747d2BE681795443C9e76c7fa3f9880 \
+L2_CONTRACT=0x6310B81901A64DDF04Ca83fc9904Df9833721d4F \
 npx hardhat run --network goerli scripts/sendL1ToL2Message.js
 ```
 
 Output
 
 ```sh
-sent tx hash 0xebf69a885d05817d7ba8470b39b26c2d15a93207621861e24e6875dbae7a99b9
-https://goerli.etherscan.io/tx/0xebf69a885d05817d7ba8470b39b26c2d15a93207621861e24e6875dbae7a99b9
+sent tx hash 0xf684e3bd4f176f86be5ee4664765a1d6af74096eedbbf001ead36bf8302c0bb0
+https://goerli.etherscan.io/tx/0xf684e3bd4f176f86be5ee4664765a1d6af74096eedbbf001ead36bf8302c0bb0
 ```
 
 ### Get Greeting on L2
@@ -94,7 +94,7 @@ https://goerli.etherscan.io/tx/0xebf69a885d05817d7ba8470b39b26c2d15a93207621861e
 Command (Note: must wait 8-14 minutes after sending from L1 to see updated state on L2)
 
 ```sh
-L2_CONTRACT=0xe9ab9BdC838BA06C7eFdc83ce79494F012A65C65 \
+L2_CONTRACT=0x6310B81901A64DDF04Ca83fc9904Df9833721d4F \
 npx hardhat run --network scroll scripts/getGreetingOnL2.js
 ```
 

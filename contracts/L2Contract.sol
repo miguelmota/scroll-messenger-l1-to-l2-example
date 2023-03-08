@@ -1,6 +1,8 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+import "./IScrollMessenger.sol";
+
 contract L2Contract {
     string private greeting;
     address l1Contract;
@@ -15,9 +17,9 @@ contract L2Contract {
         return greeting;
     }
 
-    function setGreeting(string memory _greeting, address from) public {
+    function setGreeting(string memory _greeting) public {
         require(msg.sender == l2Messenger);
-        require(from == l1Contract);
+        require(l1Contract == IScrollMessenger(l2Messenger).xDomainMessageSender());
         greeting = _greeting;
     }
 }

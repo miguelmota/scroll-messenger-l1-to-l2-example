@@ -12,12 +12,10 @@ contract L1Contract {
     }
 
     function sendMessageToL2(address _to, string memory _greeting) payable public {
-      address _from = address(this);
       uint256 _gasLimit = 100000;
       bytes memory _message = abi.encodeWithSelector(
         IL2Contract.setGreeting.selector,
-        _greeting,
-        _from
+        _greeting
       );
 
       IL1ScrollMessenger(l1Messenger).sendMessage{ value: msg.value }(_to, 0, _message, _gasLimit);
