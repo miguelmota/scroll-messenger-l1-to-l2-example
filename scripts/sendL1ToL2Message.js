@@ -27,7 +27,7 @@ async function main() {
   // const iface = new hre.ethers.utils.Interface(l2ContractAbi)
   // const calldata = iface.encodeFunctionData('setGreeting', [greeting])
   const to = l2ContractAddress
-  const fee = hre.ethers.utils.parseEther('0.0001')
+  const fee = hre.ethers.utils.parseEther('0.00001')
   const tx = await l1Contract.sendMessageToL2(to, greeting, {
     value: fee
   })
